@@ -1,0 +1,34 @@
+[project]
+name = "navin-backend"
+version = "0.1.0"
+description = "NAVIN Indoor Parking Navigation System - Backend"
+authors = [
+    {name = "NAVIN Team"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "fastapi (==0.111.0)",
+    "uvicorn[standard] (==0.29.0)",
+    "sqlalchemy (==2.0.30)",
+    "alembic (==1.13.1)",
+    "pydantic (==2.7.1)",
+    "pydantic-settings (==2.2.1)",
+    "python-dotenv (==1.0.1)",
+    "python-multipart (==0.0.9)",
+    "qrcode[pil] (==7.4.2)",
+    "pillow (==10.3.0)",
+    "loguru (==0.7.2)",
+    "httpx (==0.27.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (==8.2.0)",
+    "pytest-asyncio (==0.23.6)"
+]

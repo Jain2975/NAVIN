@@ -1,0 +1,46 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Database — never commit SQLite db
+*.db
+*.db-shm
+*.db-wal
+
+# Env files — never commit
+.env
+.env.local
+.env.production
+
+# Logs — never commit
+logs/
+*.log
+
+# Alembic generated
+# DO commit: alembic/versions/*.py
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Poetry
+# DO commit: poetry.lock
+
+# Docs (converted txt — temp files)
+doc1.txt
+doc2.txt
+
+# Uploaded floor plans (generated at runtime)
+uploads/
+
+# Source documents (too large for git)
+*.docx
