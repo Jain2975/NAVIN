@@ -31,15 +31,23 @@ def create_session(payload: EntryPayload, db: Session = Depends(get_db)):
 @router.get("/{session_id}")
 def get_session(session_id: str, db: Session = Depends(get_db)):
     from app.models.session import Session as S
+    from app.models.structure import Bay
 
     session = db.query(S).filter(S.id == session_id).first()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
+
+    bay_number = None
+    if session.parked_bay_id:
+        bay = db.query(Bay).filter(Bay.id == session.parked_bay_id).first()
+        bay_number = bay.bay_number if bay else None
+
     return {
         "id": session.id,
         "status": session.status,
         "assigned_zone": session.assigned_zone,
         "parked_bay_id": session.parked_bay_id,
+        "bay_number": bay_number,
         "structure_id": session.structure_id,
         "entry_time": session.entry_time.isoformat(),
     }

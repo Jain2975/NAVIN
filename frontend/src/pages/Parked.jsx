@@ -80,7 +80,7 @@ export default function Parked() {
             <div className="text-center p-3 bg-white/5 rounded-xl">
               <p className="text-xs text-white/40 mb-1">Bay</p>
               <p className="text-xl font-bold text-navin-400 font-mono">
-                {session?.parked_bay_id ? session.parked_bay_id.substring(0, 6) : '—'}
+                {session?.bay_number || (session?.parked_bay_id ? session.parked_bay_id.substring(0, 6) : '—')}
               </p>
             </div>
             <div className="text-center p-3 bg-white/5 rounded-xl">
