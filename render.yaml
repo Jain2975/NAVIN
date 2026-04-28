@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: navin-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install poetry && poetry config virtualenvs.create false && poetry install --only main
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.11"
+      - key: DATABASE_URL
+        value: "sqlite:///./navin.db"
+    plan: free
